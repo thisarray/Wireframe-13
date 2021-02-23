@@ -173,13 +173,16 @@ for _ in range(5):
 <script>
 WIDTH = 1000;
 HEIGHT = Math.floor((1000 * 9) / 16);
-ACCEL = 1.0;  // Warp factor per second
-DRAG = 0.71;  // Fraction of speed per second
-TRAIL_LENGTH = 2;
-MIN_WARP_FACTOR = 0.1;
-BOUNDS = new Rect(0, 0, WIDTH, HEIGHT);
+const ACCEL = 1.0;  // Warp factor per second
+const DRAG = 0.71;  // Fraction of speed per second
+const TRAIL_LENGTH = 2;
+const MIN_WARP_FACTOR = 0.1;
+const BOUNDS = new Rect(0, 0, WIDTH, HEIGHT);
 
-var warp_factor, centerx, centery, stars;
+const centerx = Math.floor(WIDTH / 2);
+const centery = Math.floor(HEIGHT / 2);
+
+var warp_factor, stars;
 
 class Star {
   constructor(pos, vel) {
@@ -279,8 +282,6 @@ function update(dt) {
 
 function reset() {
   warp_factor = MIN_WARP_FACTOR;
-  centerx = Math.floor(WIDTH / 2);
-  centery = Math.floor(HEIGHT / 2);
   stars = [];
 
   // Jump-start the star field
